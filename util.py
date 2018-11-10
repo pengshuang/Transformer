@@ -78,7 +78,7 @@ class MultiHeadAttention(nn.Module):
             attn_mask = attn_mask.repeat(num_heads, 1, 1)
 
         # scaled dot product attention
-        scale = (key.size(-1) // num_heads) ** -0.5
+        scale = (key.size(-1)) ** -0.5
         context, attention = self.dot_product_attention(
             query, key, value, scale, attn_mask)
 
