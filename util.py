@@ -126,7 +126,7 @@ class PositionalEncoding(nn.Module):
 
         # 根据论文给的公式，构造出PE矩阵
         position_encoding = np.array([
-            [pos / np.pow(10000, 2.0 * (j // 2) / d_model) for j in range(d_model)]
+            [pos / np.power(10000, 2.0 * (j // 2) / d_model) for j in range(d_model)]
             for pos in range(max_seq_len)])
         # 偶数列使用sin，奇数列使用cos
         position_encoding[:, 0::2] = np.sin(position_encoding[:, 0::2])
