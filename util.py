@@ -162,7 +162,7 @@ class PositionalEncoding(nn.Module):
         # 对每一个序列的位置进行对齐，在原序列位置的后面补上0
         # 这里range从1开始也是因为要避开PAD(0)的位置
         input_pos = tensor(
-            [list(range(1, len + 1)) + [0] * (max_len - len) for len in input_len])
+            [list(range(1, int(len) + 1)) + [0] * (max_len - len) for len in input_len])
         return self.position_encoding(input_pos)
 
 
