@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 from util import Encoder, Decoder, padding_mask
 
@@ -26,9 +25,8 @@ class Transformer(nn.Module):
         self.softmax = nn.Softmax(dim=2)
 
     def forward(self, src_seq, src_len, tgt_seq, tgt_len):
-        context_attn_mask = padding_mask(tgt_seq, src_seq)
-
         output, enc_self_attn = self.encoder(src_seq, src_len)
+        context_attn_mask = padding_mask(tgt_seq, src_seq)
 
         output, dec_self_attn, ctx_attn = self.decoder(
           tgt_seq, tgt_len, output, context_attn_mask)
