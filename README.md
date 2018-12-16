@@ -1,1 +1,3 @@
-## Attention is all you need Implemented by PyTorch
+## A PyTorch implementation of Attention is all you need
+
+Attention is all you need
